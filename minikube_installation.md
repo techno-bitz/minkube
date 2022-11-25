@@ -87,3 +87,17 @@ rm -f crictl-$VERSION-linux-amd64.tar.gz
 ```
 minikube start --vm-driver=none
 ```
+
+### ERROR!!!
+
+KubeletNotReady - container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+------------
+
+## SOLUTION IN UBUNTU 
+--------------
+### Resolved this issue by installing Calico CNI plugin using following commands:
+
+curl https://docs.projectcalico.org/manifests/calico.yaml -O
+
+kubectl apply -f calico.yaml
+
